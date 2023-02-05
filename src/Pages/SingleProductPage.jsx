@@ -9,7 +9,7 @@ export const  SinglePage=()=>{
     const params=useParams()
     
     useEffect(()=>{
-        axios.get(`http://localhost:8080/product/${params.id}`)
+        axios.get(`https://powerful-erin-gazelle.cyclic.app/product/${params.id}`)
         .then((res)=>{
             // console.log(res)
             setData(res.data.data)

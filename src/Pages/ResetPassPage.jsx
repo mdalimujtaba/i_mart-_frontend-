@@ -10,7 +10,7 @@ export const ResetPasswordPage = () => {
 
   const handleclick=()=>{
     let payload={email,password}
-    axios.patch("http://localhost:8080/user/update",payload)
+    axios.patch("https://powerful-erin-gazelle.cyclic.app/user/update",payload)
     .then((res)=>{
       if(res.data.msg=="Password Updated Successfully"){
     toast({position:"top",title:"Password Updated Successfully"})

@@ -14,7 +14,7 @@ const getproductError=()=>{
 function getProduct(params){
     return function (dispatch){
         dispatch(getproductLoading())
-        return axios.get("http://localhost:8080/product/",params)
+        return axios.get("https://powerful-erin-gazelle.cyclic.app/product/",params)
         .then((r)=>{
             dispatch(getproductSuccess(r.data.data))
         })
