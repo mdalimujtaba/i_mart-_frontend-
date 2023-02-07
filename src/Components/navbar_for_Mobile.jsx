@@ -62,7 +62,7 @@ export const MobileNavbar = () => {
           display={"flex"}
           alignItems="center"
         >
-          <Link to="##">
+          <Link to="/cart">
             <Image
               src="https://i.postimg.cc/BnwcxWds/baseline-shopping-cart-white-24dp.png"
               m={"0px"}

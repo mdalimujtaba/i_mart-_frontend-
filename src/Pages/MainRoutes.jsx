@@ -1,5 +1,6 @@
 import {Route, Routes} from "react-router-dom"
 import { PrivateRoute } from "../Components/PrivateRoute"
+import { CartPage } from "./cartPage"
 import {HomePage} from "./HomePage"
 import { LoginPage } from "./Login"
 import { ProductPage } from "./Productpage"
@@ -15,6 +16,8 @@ export const MainRoutes=()=>{
             <Route path="/signup" element={<SignupPage/>}/>
             <Route path="/resetpassword" element={<ResetPasswordPage/>}/>
             <Route path="/singleProduct/:id"  element={<PrivateRoute><SinglePage/></PrivateRoute>}/>
+            <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>}/>
+
         </Routes>
     )
 }

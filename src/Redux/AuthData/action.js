@@ -29,7 +29,7 @@ export const login=(payload)=>(dispatch)=>{
     dispatch(GetLoginRequest())
     axios.post("https://powerful-erin-gazelle.cyclic.app/user/login",payload)
     .then((res)=>{
-        // console.log(res)
+        localStorage.setItem("token",JSON.stringify(res.data.token))
       dispatch(GetLoginSuccess(res.data.firstname))
       if(res.data.msg=="Login Successfull"){
         alert("Login Successful")

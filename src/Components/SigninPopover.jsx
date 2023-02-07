@@ -26,6 +26,7 @@ import { GetLogoutSuccess } from "../Redux/AuthData/action";
      
         const handleClick=()=>{
           dispatch(GetLogoutSuccess())
+          localStorage.clear()
           navigate("/")
         }
       
