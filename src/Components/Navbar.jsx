@@ -8,6 +8,16 @@ import { Search } from './searchFeatures';
 
 
 const Navbar = () => {
+  const {isAuth}=useSelector((state)=>state.AuthReducer)
+  const navigate=useNavigate()
+  const handleClick=()=>{
+    if(isAuth){
+      navigate("/cart")
+    }
+    else{
+      navigate("/")
+    }
+  }
   return (
     <>
     <Box position={['sticky']} zIndex={['1030']}  top={0} right={0} left={0} width={['100%']} height={['130px']} bg={['rgb(0,63,127)']}>
@@ -22,10 +32,10 @@ const Navbar = () => {
           
           <ProductButton/>
           <SigninPopover/>
-          <Box  w={['7%']} h={['50%']}display={['flex']}  alignItems={['center']}> 
-          <Link to={"/cart"}>
+          <Box onClick={handleClick} cursor='pointer' w={['7%']} h={['50%']}display={['flex']}  alignItems={['center']}> 
+          
               <Image src='https://i.postimg.cc/BnwcxWds/baseline-shopping-cart-white-24dp.png'm={'0px'} h={['fit-content']}w={['fit-content']}/>
-          </Link>
+         
           </Box>
         </Box>
       </Box>
