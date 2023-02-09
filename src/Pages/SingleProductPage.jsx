@@ -23,7 +23,7 @@ import {
         setData(res.data.data);
       });
     }, [params.id]);
-    console.log("data", data);
+    // console.log("data", data);
     let bag = "";
   
     for (let i = 0; i < data.rating; i++) {

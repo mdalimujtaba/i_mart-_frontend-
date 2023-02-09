@@ -7,12 +7,12 @@ export const ProductPage=()=>{
     return (
         <>
         <Navbar/>
-        <Box display={["","",'flex']} border="1px solid black" >
-            <Box border={'1px solid blue'} w={['30%']} display={['flex']} justifyContent={['center']}>
+        <Box display={["","",'flex']}  >
+            <Box bgColor={'lightgrey'} w={['30%']} display={['flex']} justifyContent={['center']}>
 
                 <FilterComp/>
             </Box>
-            <Box margin="auto">
+            <Box >
 
                 <ProductList/>
             </Box>

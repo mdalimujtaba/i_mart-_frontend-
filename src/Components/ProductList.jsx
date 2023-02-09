@@ -27,7 +27,7 @@ function ProductList(){
         }
     },[dispatch,location.search])
     return(
-        <SimpleGrid border='1px solid black' columns={[1,2,3]} spacing={['20px']}>
+        <SimpleGrid  columns={[1,2,3]}  spacing={['','','','20px']}>
             
             {product.length>0 && product.map(singleProduct=>{
                 return (<Link key={singleProduct._id} to={`/singleProduct/${singleProduct._id}`}><ProductCard productData={singleProduct} /></Link>)
