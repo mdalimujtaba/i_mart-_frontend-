@@ -30,7 +30,7 @@ const Navbar = () => {
       </Box>
     <MobileNavbar/>
       <Box w={['100%']} h={['30%']} display={['flex']} alignItems={['center']}>
-      {/* <Search/> */}
+      <Search/>
       </Box>
     </Box>
     </>
