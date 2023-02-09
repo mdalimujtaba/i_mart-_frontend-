@@ -5,6 +5,8 @@ import ProductButton from './Productbutton';
 import { SigninPopover } from './SigninPopover';
 import { MobileNavbar } from './navbar_for_Mobile';
 import { Search } from './searchFeatures';
+import { useSelector } from 'react-redux';
+import {useNavigate} from "react-router-dom"
 
 
 const Navbar = () => {
