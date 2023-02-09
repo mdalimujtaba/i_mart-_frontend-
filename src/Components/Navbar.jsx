@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ProductButton from './Productbutton';
 import { SigninPopover } from './SigninPopover';
 import { MobileNavbar } from './navbar_for_Mobile';
+import { Search } from './searchFeatures';
 
 
 const Navbar = () => {
