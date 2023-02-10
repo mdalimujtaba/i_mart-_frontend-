@@ -44,11 +44,11 @@ function FilterComp(){
             <Text fontSize={['20px']}fontWeight={['500']}>Apply Filter</Text>
             <div> <Text fontSize={['18px']}fontWeight={['500']}>Category wise</Text>
                 <div>
-                    <input type="checkbox" checked={category.includes("Jeans")} value={"Jeans"} onChange={handleFilterCheckbox}/>
+                    <input type="checkbox" checked={category.includes("jeans")} value={"jeans"} onChange={handleFilterCheckbox}/>
                     <label >Jeans</label>
                 </div>
                 <div>
-                    <input type="checkbox" checked={category.includes("Shirt")} value={'Shirt'} onChange={handleFilterCheckbox}/>
+                    <input type="checkbox" checked={category.includes("shirt")} value={'shirt'} onChange={handleFilterCheckbox}/>
                     <label >Shirt</label>
                 </div>
                 {/* <div>
