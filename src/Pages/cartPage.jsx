@@ -1,6 +1,7 @@
-import { Box, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Button, SimpleGrid, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { CartCard } from "../Components/cartCard";
 import Navbar from "../Components/Navbar";
 
