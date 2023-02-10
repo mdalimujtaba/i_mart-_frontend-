@@ -51,7 +51,7 @@ export const CartCard = ({
           <Box mt={["15px"]}>
             <Button
               onClick={() => handleDecrease(_id, "dec")}
-              disabled={quantity == 1}
+              isDisabled={quantity <2?true:false}
               fontSize={["20px"]}
               colorScheme={"cyan"}
             >
