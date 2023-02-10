@@ -29,11 +29,11 @@ export const CartPage = () => {
       })
       .then((res) => {
         // console.log(res)
+        CartItem();
       })
       .catch((err) => {
         console.log(err);
       });
-    CartItem();
   };
 
   const handleDecrease = (id, type) => {
