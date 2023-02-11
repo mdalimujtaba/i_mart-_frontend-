@@ -178,6 +178,11 @@ export const CartPage = () => {
                   </Text>
                 </Box>
               </Box>
+              <Box>
+                <Link to="/payment">
+                  <Button colorScheme={'blue'} paddingInline={['40px']} mt={['30px']}>Proceed to checkout</Button>
+                </Link>
+              </Box>
             </Box>
           </Box>
         </Box>

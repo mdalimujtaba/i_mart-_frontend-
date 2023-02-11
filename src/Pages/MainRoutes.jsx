@@ -3,6 +3,7 @@ import { PrivateRoute } from "../Components/PrivateRoute"
 import { CartPage } from "./cartPage"
 import {HomePage} from "./HomePage"
 import { LoginPage } from "./Login"
+import { PaymentPage } from "./PaymentPage"
 import { ProductPage } from "./Productpage"
 import { ResetPasswordPage } from "./ResetPassPage"
 import { SignupPage } from "./Signup"
@@ -17,6 +18,8 @@ export const MainRoutes=()=>{
             <Route path="/resetpassword" element={<ResetPasswordPage/>}/>
             <Route path="/singleProduct/:id"  element={<PrivateRoute><SinglePage/></PrivateRoute>}/>
             <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>}/>
+            <Route path="/payment" element={<PrivateRoute><PaymentPage/></PrivateRoute>}/>
+
 
         </Routes>
     )
