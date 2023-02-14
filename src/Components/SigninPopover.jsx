@@ -21,16 +21,14 @@ import { GetLogoutSuccess } from "../Redux/AuthData/action";
     const navigate=useNavigate()
     const dispatch=useDispatch()
       let {isAuth,firstname}=useSelector((state)=>state.AuthReducer)
-  
-      
-     
         const handleClick=()=>{
           dispatch(GetLogoutSuccess())
           localStorage.clear()
           navigate("/")
         }
-      
-      
+        const handleHistory=()=>{
+          navigate("/history")
+        }
     return (
       
       <Popover>
@@ -51,15 +49,18 @@ import { GetLogoutSuccess } from "../Redux/AuthData/action";
           <PopoverCloseButton />
           <Box>
               
-              <Link to={"/login"}>
-              <Button onClick={handleClick} _hover={{bg:"skyblue"}} bg={['skyblue']} mt={['15px']} mb={['15px']} pt={['10px']} pb={['10px']} pl={['70px']} pr={['70px']} >
-                 {isAuth?firstname:'Login'}
-              </Button>
-              </Link >
-              
-              <Button onClick={handleClick} _hover={{bg:"skyblue"}} bg={['skyblue']} mt={['15px']} mb={['15px']} pt={['10px']} pb={['10px']} pl={['70px']} pr={['70px']} >
+          {isAuth?(<Button onClick={handleClick} _hover={{bg:"skyblue"}} bg={['skyblue']} mt={['15px']} mb={['15px']} pt={['10px']} pb={['10px']} pl={['70px']} pr={['70px']} >
                  Logout
+              </Button>):(<Link to={"/login"}>
+              <Button onClick={handleClick} _hover={{bg:"skyblue"}} bg={['skyblue']} mt={['15px']} mb={['15px']} pt={['10px']} pb={['10px']} pl={['70px']} pr={['70px']} >
+                 Login
               </Button>
+              </Link >)}
+              {
+                isAuth?(<Button onClick={handleHistory} _hover={{bg:"skyblue"}} bg={['skyblue']} mt={['15px']} mb={['15px']}  >
+                Previous order
+            </Button>):null
+              }
               
               <Link to={"/signup"}><Text color={'blue'} mb={['15px']}>Create New Account</Text></Link>
               <Link to={"##"} ><Text color={'blue'} mb={['15px']}>For Admin Only</Text></Link>

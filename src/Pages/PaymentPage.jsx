@@ -31,14 +31,42 @@ export const PaymentPage=()=>{
     useEffect(() => {
         CartItem();
     }, []);
+    const addtoHistory=(payload)=>{
+      let product=[]
+      data.map((item)=>{
+        product.push({productID:item.productID._id}) 
+      })
+      console.log(product)
+      let quantity=product.length
+      axios.post(`https://powerful-erin-gazelle.cyclic.app/history/addproduct`,{product,address:payload,quantity}, { headers: { Authorization: token } })
+      .then((res)=>{
+        // console.log(res)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    }
+    const deleteCartitem=()=>{
+      axios.delete(`https://powerful-erin-gazelle.cyclic.app/cart/delete`,{ headers: { Authorization: token }})
+      .then((res)=>{
+        console.log(res)
+        CartItem()
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+      
+    }
     const handleClick=()=>{
         if(firstname==""||lastname==""||email==""||address==""||state==""||country==""||pincode==null||number==null){
             toast({title:"fill all field",position:"top"})
         }
         else{
-            let payload={firstname,lastname,email,address,state,country,pincode,number}
-            toast({title:"Order placed successfully" ,position:"top"})
-            navigate("/")
+          let payload=`${address} ${state} ${country}`
+          toast({title:"Order placed successfully" ,position:"top"})
+          navigate("/")
+          addtoHistory(payload)
+          deleteCartitem()
         }
     }
       let total = 0;

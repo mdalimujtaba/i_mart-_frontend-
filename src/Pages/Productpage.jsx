@@ -8,7 +8,7 @@ export const ProductPage=()=>{
         <>
         <Navbar/>
         <Box display={["","",'flex']}  >
-            <Box bgColor={'lightgrey'} w={['30%']} display={['flex']} justifyContent={['center']}>
+            <Box bgColor={'lightgrey'} w={['100%','','30%','30%']}  display={['flex']} justifyContent={['center']}>
 
                 <FilterComp/>
             </Box>

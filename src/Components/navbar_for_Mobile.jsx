@@ -30,8 +30,20 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import ProductButton from "./Productbutton";
 import { SigninPopover } from "./SigninPopover";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const MobileNavbar = () => {
+  const {isAuth}=useSelector((state)=>state.AuthReducer)
+  const navigate=useNavigate()
+  const handleClick=()=>{
+    if(isAuth){
+      navigate("/cart")
+    }
+    else{
+      navigate("/")
+    }
+  }
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -61,15 +73,16 @@ export const MobileNavbar = () => {
           h={["50%"]}
           display={"flex"}
           alignItems="center"
+          onClick={handleClick}
         >
-          <Link to="/cart">
+          
             <Image
               src="https://i.postimg.cc/BnwcxWds/baseline-shopping-cart-white-24dp.png"
               m={"0px"}
               h={["fit-content"]}
               w={["fit-content"]}
             />
-          </Link>
+          
         </Box>
         <Box>
           <Button onClick={onOpen}>
