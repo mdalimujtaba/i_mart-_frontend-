@@ -38,7 +38,10 @@ export const PaymentPage=()=>{
       })
       console.log(product)
       let quantity=product.length
-      axios.post(`https://powerful-erin-gazelle.cyclic.app/history/addproduct`,{product,address:payload,quantity}, { headers: { Authorization: token } })
+      let date=new Date().getDate()
+      let month=new Date().getMonth()
+      let year=new Date().getFullYear()
+      axios.post(`https://powerful-erin-gazelle.cyclic.app/history/addproduct`,{product,address:payload,date:`${date}-${month+1}-${year}`,quantity}, { headers: { Authorization: token } })
       .then((res)=>{
         // console.log(res)
       })
