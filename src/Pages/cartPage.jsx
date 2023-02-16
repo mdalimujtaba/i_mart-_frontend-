@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartCard } from "../Components/cartCard";
+import { Footer } from "../Components/footer";
 import Navbar from "../Components/Navbar";
 
 export const CartPage = () => {
@@ -207,6 +208,7 @@ export const CartPage = () => {
           </Box>
         </Box>
       )}
+      <Footer></Footer>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { Box, SimpleGrid } from "@chakra-ui/react"
 import FilterComp from "../Components/FilterComp"
+import { Footer } from "../Components/footer"
 import Navbar from "../Components/Navbar"
 import ProductList from "../Components/ProductList"
 
@@ -18,7 +19,7 @@ export const ProductPage=()=>{
             </Box>
            
         </Box>
-        
+        <Footer/>
         </>
     )
 }

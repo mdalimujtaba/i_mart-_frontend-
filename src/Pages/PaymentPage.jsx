@@ -2,6 +2,7 @@ import { Box, Button, FormControl, Input, Text, useToast } from "@chakra-ui/reac
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../Components/footer";
 import Navbar from "../Components/Navbar"
 
 export const PaymentPage=()=>{
@@ -139,7 +140,7 @@ export const PaymentPage=()=>{
             </Box>
 
         </Box>
-        
+        <Footer/>
         </>
     )
 }

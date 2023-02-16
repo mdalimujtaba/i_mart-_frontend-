@@ -7,16 +7,18 @@ import {
     SimpleGrid,
     Text,
     UnorderedList,
+    useToast,
   } from "@chakra-ui/react";
   import axios from "axios";
   import { useEffect, useState } from "react";
   import { useParams } from "react-router-dom";
+import { Footer } from "../Components/footer";
   import Navbar from "../Components/Navbar";
   
   export const SinglePage = () => {
     const [data, setData] = useState({});
     const params = useParams();
-  
+    const toast=useToast()
     useEffect(() => {
       axios.get(`${process.env.REACT_APP_URL}/product/${params.id}`).then((res) => {
         // console.log(res)
@@ -34,7 +36,7 @@ import {
       axios.post(`${process.env.REACT_APP_URL}/cart/addtocart`,{productID:params.id},{headers:{"authorization":token}})
       .then((res)=>{
           // console.log(res)
-          alert("item add to cart")
+          toast({title:"Product added to cart", position:'top'})
       })
       .catch((err)=>{
           console.log(err)
@@ -90,6 +92,7 @@ import {
             </Box>
           </Box>
         </SimpleGrid>
+        <Footer/>
       </>
     );
   };
