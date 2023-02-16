@@ -41,7 +41,7 @@ export const PaymentPage=()=>{
       let date=new Date().getDate()
       let month=new Date().getMonth()
       let year=new Date().getFullYear()
-      axios.post(`https://powerful-erin-gazelle.cyclic.app/history/addproduct`,{product,address:payload,date:`${date}-${month+1}-${year}`,quantity}, { headers: { Authorization: token } })
+      axios.post(`${process.env.REACT_APP_URL}/history/addproduct`,{product,address:payload,date:`${date}-${month+1}-${year}`,quantity}, { headers: { Authorization: token } })
       .then((res)=>{
         // console.log(res)
       })
@@ -50,7 +50,7 @@ export const PaymentPage=()=>{
       })
     }
     const deleteCartitem=()=>{
-      axios.delete(`https://powerful-erin-gazelle.cyclic.app/cart/delete`,{ headers: { Authorization: token }})
+      axios.delete(`${process.env.REACT_APP_URL}/cart/delete`,{ headers: { Authorization: token }})
       .then((res)=>{
         console.log(res)
         CartItem()

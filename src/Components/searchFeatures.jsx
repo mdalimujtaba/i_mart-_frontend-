@@ -12,7 +12,7 @@ export const Search=()=>{
     const {isAuth,firstname}=useSelector((state)=>state.AuthReducer)
   
     const getData = async (text) => {
-        await axios.get(`https://powerful-erin-gazelle.cyclic.app/product/search/${text}`)
+        await axios.get(`${process.env.REACT_APP_URL}/product/search/${text}`)
         .then((res)=>{
             // console.log(res.data)
             setresult(res.data)

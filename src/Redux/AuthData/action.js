@@ -26,7 +26,7 @@ export const GetLogoutError=()=>{
 
 export const login=({payload,toast,isAuth,navigate})=>(dispatch)=>{
     dispatch(GetLoginRequest())
-    axios.post("https://powerful-erin-gazelle.cyclic.app/user/login",payload)
+    axios.post(`${process.env.REACT_APP_URL}/user/login`,payload)
     .then((res)=>{
         if(res.data.msg=="Login Successfull"){
             toast({title:"Login Successfull" , position:"top"})

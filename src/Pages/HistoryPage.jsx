@@ -10,7 +10,7 @@ export const HistoryPage = () => {
   let token = JSON.parse(localStorage.getItem("token"));
   let getData = () => {
     axios
-      .get(`https://powerful-erin-gazelle.cyclic.app/history`, { headers: { Authorization: token } })
+      .get(`${process.env.REACT_APP_URL}/history`, { headers: { Authorization: token } })
       .then((res) => {
         // console.log(res)
         setData(res.data.data);

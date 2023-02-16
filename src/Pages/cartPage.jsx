@@ -11,7 +11,7 @@ export const CartPage = () => {
   const token = JSON.parse(localStorage.getItem("token"));
   const CartItem = () => {
     axios
-      .get(`https://powerful-erin-gazelle.cyclic.app/cart/`, {
+      .get(`${process.env.REACT_APP_URL}/cart/`, {
         headers: { Authorization: token },
       })
       .then((res) => {
@@ -24,7 +24,7 @@ export const CartPage = () => {
   }, []);
   const handleDelete = (id) => {
     axios
-      .delete(`https://powerful-erin-gazelle.cyclic.app/cart/delete/${id}`, {
+      .delete(`${process.env.REACT_APP_URL}/cart/delete/${id}`, {
         headers: { Authorization: token },
       })
       .then((res) => {
@@ -40,7 +40,7 @@ export const CartPage = () => {
     console.log(type, id);
     axios
       .patch(
-        "https://powerful-erin-gazelle.cyclic.app/cart/update",
+        `${process.env.REACT_APP_URL}/cart/update`,
         { type: type, productID: id },
         { headers: { Authorization: token } }
       )
@@ -56,7 +56,7 @@ export const CartPage = () => {
     console.log(type, id);
     axios
       .patch(
-        "https://powerful-erin-gazelle.cyclic.app/cart/update",
+        `${process.env.REACT_APP_URL}/cart/update`,
         { type: type, productID: id },
         { headers: { Authorization: token } }
       )

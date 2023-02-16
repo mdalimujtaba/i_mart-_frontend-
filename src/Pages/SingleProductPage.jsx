@@ -18,7 +18,7 @@ import {
     const params = useParams();
   
     useEffect(() => {
-      axios.get(`http://localhost:8080/product/${params.id}`).then((res) => {
+      axios.get(`${process.env.REACT_APP_URL}/product/${params.id}`).then((res) => {
         // console.log(res)
         setData(res.data.data);
       });
@@ -31,7 +31,7 @@ import {
     }
     const handleAddtoCart=()=>{
       let token=JSON.parse(localStorage.getItem("token"))
-      axios.post("http://localhost:8080/cart/addtocart",{productID:params.id},{headers:{"authorization":token}})
+      axios.post(`${process.env.REACT_APP_URL}/cart/addtocart`,{productID:params.id},{headers:{"authorization":token}})
       .then((res)=>{
           // console.log(res)
           alert("item add to cart")

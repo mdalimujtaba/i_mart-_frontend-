@@ -13,7 +13,7 @@ export const SignupPage = () => {
 
   const handleSubmit=()=>{
     let payload={firstname,lastname,email,password,cpassword}
-    axios.post("https://powerful-erin-gazelle.cyclic.app/user/signup",payload)
+    axios.post(`${process.env.REACT_APP_URL}/user/signup`,payload)
     .then((res)=>{
       if(res.data.msg==="Signup Successfull"){
         toast({title:"Congrats! You have successfully created your account",position:"top"})

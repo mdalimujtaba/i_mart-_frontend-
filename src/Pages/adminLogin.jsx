@@ -12,7 +12,7 @@ export const AdminLogin = () => {
   const handleclick=()=>{
     let payload={email,password}
     if(payload){
-      axios.post(`https://powerful-erin-gazelle.cyclic.app/admin/login`,payload)
+      axios.post(`${process.env.REACT_APP_URL}/admin/login`,payload)
       .then((res)=>{
         console.log(res)
         if(res.data.msg=="Login Successfull"){
