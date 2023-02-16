@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Input, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ export const SignupPage = () => {
   let [email,setEmail]=useState("")
   let [password,setPassword]=useState("")
   let [cpassword,setCpassword]=useState("")
-
+  let toast=useToast()
   const navigate=useNavigate()
 
   const handleSubmit=()=>{
@@ -16,11 +16,12 @@ export const SignupPage = () => {
     axios.post("https://powerful-erin-gazelle.cyclic.app/user/signup",payload)
     .then((res)=>{
       if(res.data.msg==="Signup Successfull"){
-        alert("Congrats! You have successfully created your account")
+        toast({title:"Congrats! You have successfully created your account",position:"top"})
         navigate("/login")
       }
       else{
-        alert("Create again")
+        toast({title:"Enter Correct Details",position:"top"})
+
 
       }
     })
