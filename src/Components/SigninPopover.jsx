@@ -63,7 +63,7 @@ import { GetLogoutSuccess } from "../Redux/AuthData/action";
               }
               
               <Link to={"/signup"}><Text color={'blue'} mb={['15px']}>Create New Account</Text></Link>
-              <Link to={"##"} ><Text color={'blue'} mb={['15px']}>For Admin Only</Text></Link>
+              <Link to={"/adminlogin"} ><Text color={'blue'} mb={['15px']}>For Admin Only</Text></Link>
   
           </Box>
           

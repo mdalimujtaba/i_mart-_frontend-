@@ -1,5 +1,7 @@
 import {Route, Routes} from "react-router-dom"
 import { PrivateRoute } from "../Components/PrivateRoute"
+import { AdminLogin } from "./adminLogin"
+import { AdminPanel } from "./adminPanel"
 import { CartPage } from "./cartPage"
 import { HistoryPage } from "./HistoryPage"
 import {HomePage} from "./HomePage"
@@ -21,6 +23,8 @@ export const MainRoutes=()=>{
             <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>}/>
             <Route path="/payment" element={<PrivateRoute><PaymentPage/></PrivateRoute>}/>
             <Route path="/history" element={<PrivateRoute><HistoryPage/></PrivateRoute>}/>
+            <Route path="/adminlogin" element={<AdminLogin/>}/>
+            <Route path="/adminpanel" element={<AdminPanel/>}/>
         </Routes>
     )
 }
