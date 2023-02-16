@@ -11,15 +11,12 @@ export const LoginPage = () => {
   const dispatch=useDispatch()
   const toast=useToast()
   const {isAuth,firstname}=useSelector((state)=>state.AuthReducer)
-  if(isAuth){
-    navigate("/")
-
-  }
+  
  
   const handleclick=()=>{
     let payload={email,password}
     if(payload){
-      dispatch(login(payload))
+      dispatch(login({payload,toast,isAuth,navigate}))
     }
     
   

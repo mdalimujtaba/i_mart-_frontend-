@@ -24,15 +24,18 @@ export const GetLogoutError=()=>{
 }
 
 
-export const login=(payload)=>(dispatch)=>{
-    
+export const login=({payload,toast,isAuth,navigate})=>(dispatch)=>{
     dispatch(GetLoginRequest())
     axios.post("https://powerful-erin-gazelle.cyclic.app/user/login",payload)
     .then((res)=>{
-        localStorage.setItem("token",JSON.stringify(res.data.token))
-      dispatch(GetLoginSuccess(res.data.firstname))
-      if(res.data.msg=="Login Successfull"){
-        alert("Login Successful")
+        if(res.data.msg=="Login Successfull"){
+            toast({title:"Login Successfull" , position:"top"})
+            localStorage.setItem("token",JSON.stringify(res.data.token))
+          dispatch(GetLoginSuccess(res.data.firstname))
+          navigate("/")
+    }
+    else{
+        toast({title:"Enter Correct Credential" , position:"top"})
     }
     
     })
