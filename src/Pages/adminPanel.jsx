@@ -35,7 +35,7 @@ export const AdminPanel=()=>{
     }
     return(
         <>
-        <Box border={'1px solid black'} w={['100%']} display={['flex']}>
+        <Box  w={['100%']} display={['flex']}>
             <Box  w={['20%']} h={['600px']} position={['sticky']} zIndex={['1030']}  top={0} bottom={0} left={0}>
                 <Box  h={['80px']} display={['flex']} alignItems={['center']}justifyContent={['center']}>
                     <Button mr={['10px']} fontSize={['25px']} colorScheme={'blue'} fontStyle={['italic']}>i</Button>
@@ -54,8 +54,8 @@ export const AdminPanel=()=>{
 
                 </Box>
             </Box>
-            <Box borderLeft={'1px solid lightblue'}  w={['80%']} h={['1000px']}>
-                <Box borderBottom={'1px solid lightblue'} h={['80px']}display={['flex']} alignItems={['center']}justifyContent={['right']}>
+            <Box borderLeft={'1px solid lightblue'}  w={['80%']} h={['auto']}>
+                <Box position={['sticky']} bg={'white'} zIndex={['10']}  top={0} right={0} left={0} borderBottom={'1px solid lightblue'} h={['80px']}display={['flex']} alignItems={['center']}justifyContent={['right']}>
                     <Button onClick={handleClick} fontSize={['20px']} colorScheme={'blue'} mr={'30px'}>Sign out</Button>
                 </Box>
                 <Box >
