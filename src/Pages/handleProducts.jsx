@@ -15,7 +15,7 @@ import { useEffect, useState } from "react"
 import { AddProduct } from "../Components/addproductModal"
 import { AdminProductcard } from "../Components/adminProductcard"
 
-export const HandleProducts=()=>{
+export const HandleProducts=({handleEdit})=>{
     let [data,setData]=useState([])
     useEffect(()=>{
         getData()
@@ -23,14 +23,35 @@ export const HandleProducts=()=>{
     const getData=()=>{
         axios.get(`${process.env.REACT_APP_URL}/product`)
         .then((res)=>{
-            // console.log(res.data)
+            
             setData(res.data.data)
         })
         .catch((err)=>{
             console.log(err)
         })
     }
-    console.log(data)
+
+    const handleUpdate=({id,setEditproduct,editProduct})=>{
+        handleEdit({id,getData,editProduct,setEditproduct})
+
+
+        // console.log(id,editProduct)
+
+
+    }
+    const handleDelete=(id)=>{
+        axios
+      .delete(`${process.env.REACT_APP_URL}/product/delete/${id}`)
+      .then((res) => {
+        console.log(res)
+        getData()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+        // console.log(id)
+    }
+
     return(
         <>
         <Box borderRadius={'15px'} border={'1px solid lightblue'}  height={['auto']}m={['30px']}>
@@ -52,7 +73,7 @@ export const HandleProducts=()=>{
       </Tr>
     </Thead>
     <Tbody>
-        {data && data.map((item)=><AdminProductcard key={item.id} {...item}/>)}
+        {data && data.map((item)=><AdminProductcard key={item.id} {...item} handleDelete={handleDelete} handleUpdate={handleUpdate}/>)}
     </Tbody>
    
   </Table>

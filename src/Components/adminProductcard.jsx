@@ -2,9 +2,8 @@ import { Button, Image, Td, Tr } from "@chakra-ui/react"
 import { AdminProductpopover } from "./adminProductpopover"
 
 
-export const AdminProductcard=({_id,title,image,available
-})=>{
-    console.log(_id,title,image)
+export const AdminProductcard=({_id,title,image,available,handleDelete,handleUpdate})=>{
+   
     return(
         <>
             <Tr>
@@ -12,7 +11,7 @@ export const AdminProductcard=({_id,title,image,available
                 <Td>{title}</Td>
                 <Td >400</Td>
                 <Td>{available?'Published':"Unpublished"}</Td>
-                <Td cursor={'pointer'}><AdminProductpopover/></Td>
+                <Td cursor={'pointer'}><AdminProductpopover handleDelete={handleDelete} handleUpdate={handleUpdate} id={_id}/></Td>
             </Tr>
         </>
     )

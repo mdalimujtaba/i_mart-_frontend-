@@ -5,12 +5,15 @@ import { HandleProduct, HandleProducts } from "./handleProducts";
 import { HandleCustomers } from "./handleCustomers";
 import { HandleOrders } from "./handleOrders";
 import { useState } from "react";
+import { EditProduct } from "../Components/editProduct";
 
 export const AdminPanel=()=>{
     const navigate=useNavigate()
     const [product,setProduct]=useState(true)
     const [order,setOrder]=useState(false)
     const [customer,setCustomer]=useState(false)
+    const [edit,setEdit]=useState(false)
+
     const handleClick=()=>{
         localStorage.clear()
           navigate("/")
@@ -19,20 +22,42 @@ export const AdminPanel=()=>{
         setProduct(true)
         setOrder(false)
         setCustomer(false)
+        setEdit(false)
+
         // <HandleProducts/>
     }
     const handleCustomer=()=>{
         setCustomer(true)
         setProduct(false)
         setOrder(false)
+        setEdit(false)
+
         // <HandleCustomers/>
     }
     const handleOrder=()=>{
         setOrder(true)
         setProduct(false)
         setCustomer(false)
+        setEdit(false)
         // <HandleOrders/>
     }
+    let id;
+    let getData;
+    const handleUpdate=({id,getData,editProduct,setEditproduct})=>{
+        editProduct==false?setEdit(true):setEdit(false)
+        setOrder(false)
+        setProduct(false)
+        setCustomer(false)
+        setEdit(true)
+        // handleOrder(setEditproduct)
+        // handleCustomer(setEditproduct)
+        // handleProduct(setEditproduct)
+        console.log(editProduct)
+        id=id
+        getData=getData
+        
+    }
+    console.log(edit)
     return(
         <>
         <Box  w={['100%']} display={['flex']}>
@@ -59,9 +84,10 @@ export const AdminPanel=()=>{
                     <Button onClick={handleClick} fontSize={['20px']} colorScheme={'blue'} mr={'30px'}>Sign out</Button>
                 </Box>
                 <Box >
-                    {product &&<HandleProducts/>}
+                {product &&<HandleProducts handleEdit={handleUpdate}/>}
                     {customer && <HandleCustomers/>}
                     {order && <HandleOrders/>}
+                    {edit && <EditProduct id={id} getData={getData}/>}
                 </Box>
             </Box>
         </Box>

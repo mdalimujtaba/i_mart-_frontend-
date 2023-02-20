@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { Box, Text } from "@chakra-ui/react"
+
 import {
     Modal,
     ModalOverlay,
@@ -14,12 +15,10 @@ import {
     useDisclosure,
     useToast,
   } from '@chakra-ui/react'
-import axios from 'axios'
-export const AddProduct=()=>{
-    const { isOpen, onOpen, onClose } = useDisclosure()
+import axios from "axios"
+import { useState } from "react"
+export const EditProduct=({id,getData})=>{
   
-    const initialRef = React.useRef(null)
-    const finalRef = React.useRef(null)
     const [image,setImage]=useState("")
     const [title,setTitle]=useState("")
     const [category,setCategory]=useState("")
@@ -29,44 +28,17 @@ export const AddProduct=()=>{
     const [rating,setRating]=useState('')
     const [desc,setDesc]=useState([])
     const toast=useToast()
-    const handleClick=()=>{
-      if(image==""||title=="" || category=="" || type=="" || price=="" || available=="" || rating=="" || desc==""){
-        toast({title:"fill all input",position:"top"})
-      }
-      else{
-        let payload={image,title,category,type,price,available,rating,desc}
-        axios.post(`${process.env.REACT_APP_URL}/product/addproduct`,payload)
-        .then((res)=>{
-          // console.log(res)
-          if(res.data.msg=="Product added to database"){
-            toast({title:"Product added to database",position:"top"})
 
-          }
-          else{
-        toast({title:"Something went wrong",position:"top"})
+    
+    return(
+        <>
+        <Box borderRadius={'15px'} border={'1px solid lightblue'}  height={['auto']}m={['30px']}>
+            <Box  m={['20px']} display={['flex']} justifyContent={['space-between']}>
+                <Text fontSize={'25px'} fontWeight={['500']}>Edit Product</Text>
 
-          }
-        })
-        .catch((err)=>{
-          console.log(err)
-        })
-      }
-    }
-  
-    return (
-      <>
-        <Button onClick={onOpen} colorScheme={'blue'}>ADD PRODUCT</Button>
-        <Modal
-          initialFocusRef={initialRef}
-          finalFocusRef={finalRef}
-          isOpen={isOpen}
-          onClose={onClose}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Add Product</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
+            </Box>
+            <Box  m={['20px']}>
+
               <FormLabel>Image URL</FormLabel>
                 <Input value={image} onChange={(e)=>setImage(e.target.value)}  placeholder='Enter Image Url' />
                 <FormLabel>Title</FormLabel>
@@ -83,16 +55,15 @@ export const AddProduct=()=>{
                 <Input value={rating} onChange={(e)=>setRating(e.target.value)}  placeholder='Enter Rating in numerals' />
                 <FormLabel>Description</FormLabel>
                 <Input value={desc} onChange={(e)=>setDesc(e.target.value)}  placeholder='Enter Description' />
-            </ModalBody>
+                
+            </Box>
+           
   
-            <ModalFooter>
-              <Button onClick={handleClick} colorScheme='blue' mr={3}>
-                Save
-              </Button>
-              {/* <Button onClick={onClose}>Cancel</Button> */}
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
+           
+         
+       
+        </Box>
+        
+        </>
     )
-  }
+}
