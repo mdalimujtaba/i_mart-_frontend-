@@ -13,6 +13,7 @@ export const AdminPanel=()=>{
     const [order,setOrder]=useState(false)
     const [customer,setCustomer]=useState(false)
     const [edit,setEdit]=useState(false)
+    const [product_id,setId]=useState('')
 
     const handleClick=()=>{
         localStorage.clear()
@@ -41,20 +42,13 @@ export const AdminPanel=()=>{
         setEdit(false)
         // <HandleOrders/>
     }
-    let id;
-    let getData;
     const handleUpdate=({id,getData,editProduct,setEditproduct})=>{
         editProduct==false?setEdit(true):setEdit(false)
         setOrder(false)
         setProduct(false)
         setCustomer(false)
         setEdit(true)
-        // handleOrder(setEditproduct)
-        // handleCustomer(setEditproduct)
-        // handleProduct(setEditproduct)
-        console.log(editProduct)
-        id=id
-        getData=getData
+        setId(id)
         
     }
     console.log(edit)
@@ -87,7 +81,7 @@ export const AdminPanel=()=>{
                 {product &&<HandleProducts handleEdit={handleUpdate}/>}
                     {customer && <HandleCustomers/>}
                     {order && <HandleOrders/>}
-                    {edit && <EditProduct id={id} getData={getData}/>}
+                    {edit && <EditProduct id={product_id}/>}
                 </Box>
             </Box>
         </Box>
