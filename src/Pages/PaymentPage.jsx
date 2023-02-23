@@ -50,6 +50,25 @@ export const PaymentPage=()=>{
         console.log(err)
       })
     }
+    let finalTotal = 0;
+    const addtoOrder=({payload,contact})=>{
+      let product=[]
+      data.map((item)=>{
+        product.push({productID:item.productID._id}) 
+      })
+      let quantity=product.length
+      let date=new Date().getDate()
+      let month=new Date().getMonth()
+      let year=new Date().getFullYear()
+      // console.log(`${date}-${month+1}-${year}`)
+      axios.post(`${process.env.REACT_APP_URL}/order/addorder`,{product,finalTotal,contact,address:payload,date:`${date}-${month+1}-${year}`,quantity}, { headers: { Authorization: token } })
+      .then((res)=>{
+        // console.log(res)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    }
     const deleteCartitem=()=>{
       axios.delete(`${process.env.REACT_APP_URL}/cart/delete`,{ headers: { Authorization: token }})
       .then((res)=>{
@@ -67,16 +86,16 @@ export const PaymentPage=()=>{
         }
         else{
           let payload=`${address} ${state} ${country}`
+          let contact=`${number}`
           toast({title:"Order placed successfully" ,position:"top"})
           navigate("/")
-          addtoHistory(payload)
+          addtoHistory({payload,contact})
           deleteCartitem()
         }
     }
       let total = 0;
   let totalItem = 0;
   let delivery = 0;
-  let finalTotal = 0;
   data.map((item) => {
     total = total + item.productID.price * item.quantity;
     totalItem = totalItem + item.quantity;
