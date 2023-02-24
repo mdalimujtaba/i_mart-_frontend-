@@ -3,9 +3,9 @@ import { Box, Heading, Link, SimpleGrid, Text } from "@chakra-ui/react"
 export const Footer=()=>{
     return(
         <>
-            <Box bg={'lightgrey'} width={['100%']} height={['400px']} mt={['20px']}>
+            <Box bg={'lightgrey'} width={['100%']} height={['auto','','400px']} mt={['20px']}>
 
-                <SimpleGrid  columns={[3]} h={['100%']} width={['90%']} ml={['5%']}>
+                <SimpleGrid  columns={[1,1,3]} h={['100%']} width={['90%']} ml={['5%']}>
                     <Box  h={['70%']} mt={['15%']} textAlign={['center']}>
                         <Heading  mb={'20px'}>Who We Are</Heading>
                         <Link fontSize={'20px'} color="blue">
