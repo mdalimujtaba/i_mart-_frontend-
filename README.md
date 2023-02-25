@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# i-mart.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+This is e-commerce website where different products are available and user can also buy the product.
+- Go through our website https://i-mart-frontend-xi.vercel.app/
 
-In the project directory, you can run:
+## User Side Pages
 
-### `npm start`
+ ### Signup and Login
+ - For signup we have provide First name, Last name, email, password and confirm password. If both password is not correct then you will not be able to signup.
+ - After successfull signup, it will redirect you to login page.
+ - In Login page we have to provide email and password.
+ - After successfully login, it will redirect to home page.
+ <box display="flex">
+<image src="https://i.postimg.cc/tCZZhb0P/Screenshot-1899.png"/>
+ <image src="https://i.postimg.cc/7PQJG6Rw/Screenshot-1898.png"/>
+</box>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ ### Home Page
+ - It contain navigation bar containing different tabs such as product, cart, accounts tab.
+ - If you are logged in then only we will be able to access different pages.
+ - It has search bar which search product according to type or category of product.
+ - It has footer.
+ <image src="https://i.postimg.cc/zvfddBwq/Screenshot-1900.png"/>
+ 
+ ### Product Page & Single Product page
+ - It has sorting option available by price in ascending and descending order.
+ - It has filter by category option available.
+ - When we click on card it will redirect us to single product page.
+ - On single product page we can see details of product and add to the cart.
+ <box display="flex">
+<image src="https://i.postimg.cc/mrmRhcrs/Screenshot-1904.png"/>
+ <image src="https://i.postimg.cc/R0Bxg7W9/Screenshot-1902.png"/>
+</box>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ### Cart Page
+ - After the user ends up choosing all the desired products to purchase, the user gets directed to the cart page where there is a list of all the products the user would purchase and in what quantity.
+ - The total price also gets displayed. From there, the user can proceed to payment by clicking on checkout button.
+ <image src="https://i.postimg.cc/6qwhSQd8/Screenshot-1900.png"/>
+ 
+ ### Payment Page
+ - User have to fill the detail and press on place order button.
+ - Ater successfull payment, user can be redirected to home page.
+ <image src="https://i.postimg.cc/YSWfCFR4/Screenshot-1901.png"/>
+ 
+ ### Previous Order Page
+ - This page will show all the history order of an user.
+ - It is present at login popover when user is logged in.
+  <image src="https://i.postimg.cc/yx18LZbg/Screenshot-1910.png"/>
+  
+  ## Admin Side Pages
+  
+  ### Admin Credential
+  - Email: mdali@gmail.com
+  - Password:mdali123
+  
+  ### Product List page
+  - Here we can add product, delete product and edit product details.
+  - All these will saved in database which I have create in MongoDB.
+  <image src="https://i.postimg.cc/kG65bm6D/Screenshot-1912.png"/>
+  
+   ### Order List page
+  - we can see all the order placed by customers.
+  - When click on id it will give all the ordered product.
+  <image src="https://i.postimg.cc/9QVp8Jmf/Screenshot-1916.png"/>
+  
+  ### Customers List page
+  - Here we can see all those users who had signed up on this website.
+  - We can delete/remove them also.
+    <image src="https://i.postimg.cc/xdjnmzcc/Screenshot-1914.png"/>
+    
+ 
+  
+ ## Functionality
+ - Search by category
+ - Filter by category
+ - Sort by price
+ - Authentication and authorization
+ - All CRUD operation
+ 
+## Tech Stack Used
+- Javascript
+- ReactJs
+- Redux
+- Chakra UI
 
-### `npm test`
+## Backend Tech Stack Used
+- Node JS
+- Express JS
+- MongoDB
+- JWT
+- Mongoose
+## Repo link for backend
+ Link:"https://github.com/mdalimujtaba/i_mart_backend"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
